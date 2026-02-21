@@ -1,14 +1,14 @@
-# Resume RAG Parser & Extractor
+# Resume Parser & Extractor
 
-A high-performance, async microservice that parses resumes into structured data (JSON) and allows you to ask questions about candidates using RAG (Retrieval-Augmented Generation). Built with **FastAPI**, **LangGraph**, **ChromaDB**, and **Google Gemini**.
+A high-performance, async microservice that parses resumes into structured data (JSON) and allows you to ask questions about candidates using semantic search. Built with **FastAPI**, **LangGraph**, **ChromaDB**, and **Google Gemini**.
 
 ## 🚀 Features
 
 - **Structured Parsing**: Extracts Name, Email, Skills, Experience, and Education into strict JSON using Gemini 1.5 Flash.
-- **RAG Q&A**: Ask questions like *"Does this candidate have leadership experience?"* grounded in the resume text.
+- **Smart Q&A**: Ask questions like *"Does this candidate have leadership experience?"* grounded in the resume text.
 - **High Concurrency**: Supports batch processing of 100+ resumes simultaneously using `asyncio` and Semaphores.
 - **Stateful Workflow**: Uses **LangGraph** to manage ingestion, parsing, and retrieval states.
-- **Vector Search**: Uses **ChromaDB** for semantic search (local & fast).
+- **Vector Search**: Uses **ChromaDB** for fast semantic lookup (local & efficient).
 
 ## 🛠️ Tech Stack
 
@@ -23,7 +23,7 @@ A high-performance, async microservice that parses resumes into structured data 
 ### 1. Clone & Install
 ```bash
 git clone <repo-url>
-cd resume-rag-parser
+cd resume-parser
 pip install -r requirements.txt
 ```
 
@@ -59,7 +59,7 @@ Open **[http://localhost:8000/docs](http://localhost:8000/docs)** to test endpoi
 - **Body**: List of files
 - **Behavior**: Processes multiple PDFs in parallel (limited by Semaphore to avoid rate limits).
 
-### 3. Ask a Question (RAG)
+### 3. Ask a Question
 **POST** `/query`
 ```json
 {
